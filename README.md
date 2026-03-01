@@ -1,5 +1,8 @@
 FM Transmitter Using Raspberry Pi
 
+<img width="425" height="240" alt="Screenshot 2026-03-01 094902" src="https://github.com/user-attachments/assets/8e6e642f-b10d-4840-bf68-8b3ef076f34a" />
+
+
 Why This Project?
 
 Radio communication has always required dedicated hardware and expensive transmitter circuits. This project was built with a simple question:
