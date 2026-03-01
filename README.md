@@ -1,165 +1,86 @@
 FM Transmitter Using Raspberry Pi
-Software-Defined Radio (SDR) Implementation with Real-Time RDS Encoding
 
-🔷 Project Summary
+Why This Project?
 
-Designed and implemented a low-cost, software-defined FM transmitter using Raspberry Pi 3 by leveraging GPIO-based Pulse Width Modulation (PWM) and Direct Memory Access (DMA) streaming.
+Radio communication has always required dedicated hardware and expensive transmitter circuits. This project was built with a simple question:
 
-The system broadcasts stereo audio along with real-time Radio Data System (RDS) metadata without requiring dedicated RF transmission hardware.
+Can a small single-board computer like Raspberry Pi act as a real FM transmitter using only software?
 
-This project demonstrates practical implementation of:
+This project explores how modern computing power can redefine traditional electronics concepts through software-defined radio techniques.
 
-Digital Signal Processing (DSP)
+🎯 Project Vision
 
-Software-Defined Radio (SDR)
+The goal of this project was not just to transmit audio, but to understand the deeper relationship between:
 
-Embedded C Programming
+Digital signal processing
 
-Real-Time Audio Processing
+Embedded system control
 
-RF Signal Generation via GPIO
+RF communication principles
 
-🔷 Engineering Problem Addressed
+Software-driven hardware manipulation
 
-Conventional FM transmitters depend on dedicated RF modules and analog modulation circuitry, increasing hardware cost and system complexity.
+By using Raspberry Pi GPIO and open-source tools, this project demonstrates how accessible technology can be transformed into a learning platform for real-world communication systems.
 
-This project eliminates external RF hardware by implementing FM modulation entirely in software using Raspberry Pi peripherals, proving that general-purpose embedded systems can be repurposed for RF communication tasks.
+⚙️ How It Works (In Simple Terms)
 
-🔷 Technical Architecture
-🧠 Processing Layer
+Audio input is read digitally (WAV file or live source).
 
-Real-time audio sampling (WAV / Live Stream)
+The software processes the signal and performs FM modulation.
 
-Upsampling to 228 kHz internal rate
+A frequency-modulated square wave is generated using GPIO.
 
-60th-order FIR filtering
+A simple wire acts as a low-power antenna.
 
-Stereo multiplex baseband generation:
+Stereo audio and RDS metadata are transmitted.
 
-L+R
+All of this is achieved without a dedicated RF transmitter module — purely through intelligent software control.
 
-L−R
+🛠 Tools & Technologies Used
 
-19 kHz pilot tone
+Raspberry Pi 3
 
-RDS group generation (0A, 2A, 4A)
+Raspberry Pi OS (Lite)
 
-CRC-based RDS encoding
+Pi-FM-RDS framework
 
-⚙ Hardware Layer
+SoX for audio processing
 
-Raspberry Pi 3 (ARM-based SBC)
+SSH for remote configuration
 
-GPIO 4 (PWM output)
+Command-line compilation and execution
 
-8.6 cm wire antenna
+📊 Key Outcomes
 
-5V regulated power supply
+Successful low-power FM broadcast generation
 
-MicroSD (16GB+)
+Real-time RDS data transmission
 
-📡 Transmission Layer
+Practical understanding of SDR concepts
 
-DMA controller streams multiplex samples to PWM peripheral
+Hands-on experience with embedded Linux systems
 
-PWM generates frequency-modulated square wave
+🌍 Responsibility & Ethics
 
-Antenna radiates VHF FM signal (~107.9 MHz)
+This project was developed strictly for educational and experimental purposes.
+Unlicensed broadcasting may be restricted under communication regulations in many countries, including India.
 
-🔷 Antenna Optimization
+The intention of this work is academic exploration — not commercial transmission.
 
-Optimal antenna length formula:
+🚀 What I Learned
 
-Length (cm) = (300 / Frequency in MHz / 16) × 100
+How software can directly manipulate hardware peripherals
 
-For 107.9 MHz:
+Practical digital signal processing implementation
 
-Theoretical length: 17.3 cm
+Embedded Linux workflow and system-level debugging
 
-Practical length used: 8.6 cm (to limit interference)
+RF signal generation basics
 
-Measured broadcast radius: ~50 meters.
+Importance of regulatory awareness in communication systems
 
-🔷 Performance Evaluation
-Mode	CPU Utilization
-RDS Only	9%
-Mono Audio	33%
-Stereo Audio	40%
-Measured Results:
 
-Clear stereo separation
+ Final Thought:
 
-Zero RDS group errors
-
-Stable continuous transmission
-
-No runtime buffer underflow
-
-The system remained computationally stable under sustained real-time operation.
-
-🔷 Key Technical Contributions
-
-✔ Implemented stereo FM multiplex signal generation
-✔ Integrated EN 50067 compliant RDS encoding
-✔ Achieved stable DMA-based continuous transmission
-✔ Optimized CPU usage for real-time DSP operations
-✔ Validated reception using multiple FM receivers
-
-🔷 Core Technical Skills Demonstrated
-
-Embedded C programming
-
-GPIO peripheral control
-
-DMA configuration
-
-FIR filter implementation
-
-CRC encoding techniques
-
-Real-time system optimization
-
-Linux command-line environment
-
-Software-defined radio concepts
-
-🔷 Innovation & Differentiation
-
-RF transmission achieved without external RF modules
-
-Combines Embedded Systems + DSP + RF Communication
-
-Minimal hardware dependency (cost-effective solution)
-
-Demonstrates strong system-level integration capability
-
-🔷 Practical Applications
-
-Educational SDR experimentation platform
-
-Localized campus broadcasting
-
-Embedded communication lab prototype
-
-Digital signal processing demonstration system
-
-🔷 Limitations & Compliance
-
-Transmission range intentionally limited (~50m) to minimize interference.
-The system is intended strictly for educational and controlled experimental use in compliance with local RF regulations.
-
-🔷 Future Enhancements
-
-Harmonic filtering for improved spectral purity
-
-Web-based broadcast control dashboard
-
-Remote RDS dynamic update interface
-
-IoT-based streaming integration
-
-🔷 Conclusion
-
-This project validates that Raspberry Pi can function as a software-defined FM transmitter through intelligent use of PWM and DMA-based modulation.
-
-It showcases applied knowledge in embedded systems, digital signal processing, and RF communication — demonstrating practical engineering problem-solving capability suitable for real-world applications.
+Technology becomes powerful when it is understood deeply and used responsibly.
+This project represents my exploration into bridging embedded systems, communication engineering, and software-defined radio.
